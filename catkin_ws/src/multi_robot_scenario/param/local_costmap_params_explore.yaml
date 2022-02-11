@@ -1,0 +1,24 @@
+local_costmap:
+  global_frame: odom
+  robot_base_frame: base_footprint
+
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 0.5
+  static_map: false  
+  rolling_window: true
+  width: 1.5
+  height: 1.5
+  resolution: 0.01
+  
+  track_unknown_space: false
+
+  plugins:
+#  - {name: static_layer, type: "costmap_2d::StaticLayer"}
+  - {name: obstacle_layer, type: "costmap_2d::VoxelLayer"}
+  - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+
+  inflation_layer:
+    enabled: true
+    inflation_radius: 0.22   #0.22
+    cost_scaling_factor: 1.0
